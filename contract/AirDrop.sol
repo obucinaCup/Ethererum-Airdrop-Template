@@ -9,7 +9,7 @@ contract AirDrop is ERC20 {
 
     address private owner;
     address[] public airdropAddressList;
-    uint256 eachClaimAmount = 1000;
+    uint256 eachClaimAmount = 1000 * 10**18;
     uint256 public maxAirdropAmount;
     uint256 public currentAirdropAmount;
     uint256 TotolToken = 100000;
@@ -76,7 +76,9 @@ contract AirDrop is ERC20 {
     function getWhitelistedAddress() external view returns (address[] memory) {
         return airdropAddressList;
     }
-
+    function isOwner() external view returns (address) {
+        return owner;
+    }
     function getProcessedAirdrop(address _address)
         external
         view
